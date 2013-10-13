@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	private float speed;
-	private int health;
+	public static int health;
 	private Transform _transform;
 	
 	public Transform primaryWeapon;
@@ -47,5 +47,10 @@ public class Player : MonoBehaviour {
 	{
 		if(other.gameObject.tag.Equals("Enemy"))
 			health--;
+	}
+	
+	public int getHealth()
+	{
+		return health;
 	}
 }

@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour {
 			if(Time.time > nextFire)
 			{
 				nextFire = Time.time + fireRate;
-				Transform bullet = Instantiate(bulletPrefab, _transform.position, _transform.rotation) as Transform;
+				Instantiate(bulletPrefab, _transform.position, _transform.rotation);
 			}
 		}
 	}

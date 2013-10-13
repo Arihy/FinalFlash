@@ -39,7 +39,8 @@ public class CameraObs : MonoBehaviour, IMessageListener {
 			case eEtatID.eWin:
 				break;
 			case eEtatID.eLoose:
-				GUI.Box(new Rect((Screen.width/2) - 200, (Screen.height/2) - 50, 400, 100), "Fail !");
+				//GUI.Box(new Rect((Screen.width/2) - 200, (Screen.height/2) - 50, 400, 100), "Fail !");
+				Application.LoadLevel("gameOver");
 				break;
 			default:
 				break;

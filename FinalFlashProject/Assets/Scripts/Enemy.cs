@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour {
 	//virtual permet de pouvoir faire des surcharges
 	public virtual void Start () {
 		_transform = transform;
-		velocity = new Vector3(Random.Range(1.0f, 3.0f), 0, Random.Range(1.0f, 3.0f));
+		velocity = new Vector3(Random.Range(1.0f, 2.0f), 0, Random.Range(1.0f, 2.0f));
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
@@ -27,7 +27,11 @@ public class Enemy : MonoBehaviour {
 		if(other.gameObject.tag.Equals("EnemyWall"))
 			Destroy(gameObject);
 		if(other.gameObject.tag.Equals("Bullet"))
+		{
+			//send message to score before destroy
+			MessageMgr.Instance.NotifyObservers(eMessageID.eScore, this.gameObject);
 			Destroy(gameObject);
+		}
 		if(other.gameObject.tag.Equals("Player"))
 			Destroy(gameObject);
 	}
